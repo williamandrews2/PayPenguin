@@ -1,8 +1,15 @@
 import { useState } from "react";
-import "./App.css";
+import Header from "./components/Header";
+import "./styles/App.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <div className="app-container">
+        <Header />
+      </div>
+    </>
+  );
 }
 
 export default App;

@@ -1,0 +1,35 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* CSS Variables */
+  --font-color: #084471;
+  --font-color-hover: #6abeff;
+  --bg-color-1: #9cd7f3;
+
+  color-scheme: light dark;
+  color: var(--font-color);
+  background-color: var(--bg-color-1);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: var(--font-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--font-color-hover);
+}
