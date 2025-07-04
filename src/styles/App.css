@@ -5,18 +5,23 @@
   text-align: center;
 }
 
-.app-container {
+.app-container-wrapper {
+  display: flex;
+  justify-content: center;
   width: 100%;
   min-height: 80vh;
   border-radius: 20px;
   background-color: #caeefe;
 }
 
+.app-container {
+  width: 85%;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 60px;
 }
 
 .branding {
@@ -30,11 +35,41 @@ header {
   padding-right: 10px;
 }
 
+.new-bill-section {
+  display: flex;
+  justify-content: center;
+}
+
 .bill-form {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+}
+
+.bill-form input,
+.bill-form .datepicker-wrapper .react-datepicker__input-container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 130px;
+  box-sizing: border-box;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+}
+
+.bill-list {
+  margin-top: 30px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.bill-list h2 {
+  padding-left: 20px;
+  margin: 10px 0px;
+  text-align: left;
 }
 
 .bill-item {

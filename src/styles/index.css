@@ -18,6 +18,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+h3 {
+  text-align: left;
+}
+
 ul {
   list-style: none;
 }
@@ -44,12 +48,11 @@ input {
   padding: 10px 10px;
   border-radius: 10px;
   border: none;
-  min-width: 40px;
 }
 
 button {
   font-size: 1.1rem;
-  padding: 0px 10px;
+  padding: 10px 10px;
   border: none;
   color: white;
   background-color: var(--button-bg-color);

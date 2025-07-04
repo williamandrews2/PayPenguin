@@ -36,32 +36,31 @@ export function BillForm({ onAdd }) {
     <>
       <h3>New Bill</h3>
       <form onSubmit={handleSubmit} className="bill-form">
-        <label htmlFor="bill-name">
-          <input
-            type="text"
-            placeholder="Bill name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-
-        <label htmlFor="bill-amount">
-          <input
-            type="number"
-            placeholder="Amount ($)"
-            step="0.01"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            required
-          />
-        </label>
-
-        <DatePicker
-          selected={dueDate}
-          onChange={(date) => setDueDate(date)}
-          placeholderText="Select a due date"
+        <input
+          type="text"
+          placeholder="Bill name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
         />
+
+        <input
+          type="number"
+          placeholder="Amount ($)"
+          step="0.01"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          required
+        />
+
+        <div className="datepicker-wrapper">
+          <DatePicker
+            selected={dueDate}
+            onChange={(date) => setDueDate(date)}
+            placeholderText="Select a due date"
+            required
+          />
+        </div>
 
         <button type="submit">Add bill</button>
       </form>

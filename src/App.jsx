@@ -12,10 +12,12 @@ function App() {
   }
   return (
     <>
-      <div className="app-container">
-        <Header />
-        <BillForm onAdd={addBill} />
-        <BillList bills={bills} />
+      <div className="app-container-wrapper">
+        <div className="app-container">
+          <Header />
+          <BillForm onAdd={addBill} />
+          <BillList bills={bills} />
+        </div>
       </div>
     </>
   );
