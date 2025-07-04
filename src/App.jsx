@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import { BillForm } from "./components/BillForm";
 import "./styles/App.css";
@@ -6,7 +6,28 @@ import { BillList } from "./components/BillList";
 import "./styles/billList.css";
 
 function App() {
-  const [bills, setBills] = useState([]);
+  // initialize state from localStorage
+  const [bills, setBills] = useState(() => {
+    const storedBills = localStorage.getItem("bills");
+    if (!storedBills) return [];
+
+    // re-parse the date from a string back to a Date
+    try {
+      const parsed = JSON.parse(storedBills);
+      return parsed.map((bill) => ({
+        ...bill,
+        dueDate: new Date(bill.dueDate),
+      }));
+    } catch (error) {
+      console.error("There was an error parsing localStorage.");
+      return [];
+    }
+  });
+
+  // track changes in bills array and write to localStorage
+  useEffect(() => {
+    localStorage.setItem("bills", JSON.stringify(bills));
+  }, [bills]);
 
   function addBill(newBill) {
     setBills((prevBills) => [...prevBills, newBill]);
