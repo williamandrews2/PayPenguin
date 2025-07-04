@@ -1,4 +1,6 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export function BillForm({ onAdd }) {
   const [name, setName] = useState("");
@@ -31,39 +33,38 @@ export function BillForm({ onAdd }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bill-form">
-      <label htmlFor="bill-name">
-        Bill Name:
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </label>
+    <>
+      <h3>New Bill</h3>
+      <form onSubmit={handleSubmit} className="bill-form">
+        <label htmlFor="bill-name">
+          <input
+            type="text"
+            placeholder="Bill name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </label>
 
-      <label htmlFor="bill-amount">
-        Amount ($):
-        <input
-          type="number"
-          step="0.01"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          required
-        />
-      </label>
+        <label htmlFor="bill-amount">
+          <input
+            type="number"
+            placeholder="Amount ($)"
+            step="0.01"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            required
+          />
+        </label>
 
-      <label htmlFor="due-date">
-        Due Date:
-        <input
-          type="date"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-          required
+        <DatePicker
+          selected={dueDate}
+          onChange={(date) => setDueDate(date)}
+          placeholderText="Select a due date"
         />
-      </label>
 
-      <button type="submit">Add bill</button>
-    </form>
+        <button type="submit">Add bill</button>
+      </form>
+    </>
   );
 }

@@ -7,6 +7,7 @@
   --font-color: #084471;
   --font-color-hover: #6abeff;
   --bg-color-1: #9cd7f3;
+  --button-bg-color: #2a7bb4;
 
   color: var(--font-color);
   background-color: var(--bg-color-1);
@@ -31,4 +32,32 @@ a {
 
 a:hover {
   color: var(--font-color-hover);
+}
+
+p,
+label {
+  font-weight: bolder;
+}
+
+input {
+  font-size: 1.2rem;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: none;
+  min-width: 40px;
+}
+
+button {
+  font-size: 1.1rem;
+  padding: 0px 10px;
+  border: none;
+  color: white;
+  background-color: var(--button-bg-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--font-color-hover);
 }

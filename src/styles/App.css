@@ -29,3 +29,10 @@ header {
   width: auto;
   padding-right: 10px;
 }
+
+.bill-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
