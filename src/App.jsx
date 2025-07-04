@@ -11,13 +11,22 @@ function App() {
   function addBill(newBill) {
     setBills((prevBills) => [...prevBills, newBill]);
   }
+
+  function togglePaid(id) {
+    setBills((prevBills) =>
+      prevBills.map((bill) =>
+        bill.id === id ? { ...bill, paid: !bill.paid } : bill
+      )
+    );
+  }
+
   return (
     <>
       <div className="app-container-wrapper">
         <div className="app-container">
           <Header />
           <BillForm onAdd={addBill} />
-          <BillList bills={bills} />
+          <BillList bills={bills} togglePaid={togglePaid} />
         </div>
       </div>
     </>

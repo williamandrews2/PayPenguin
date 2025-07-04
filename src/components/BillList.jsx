@@ -1,6 +1,6 @@
 import { BillItem } from "./BillItem";
 
-export function BillList({ bills }) {
+export function BillList({ bills, togglePaid }) {
   // only render when one or more bills have been added
   if (bills.length > 0) {
     return (
@@ -15,7 +15,7 @@ export function BillList({ bills }) {
           </header>
           <ul>
             {bills.map((bill) => (
-              <BillItem key={bill.id} bill={bill} />
+              <BillItem key={bill.id} bill={bill} togglePaid={togglePaid} />
             ))}
           </ul>
         </div>
