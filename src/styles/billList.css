@@ -1,0 +1,65 @@
+.bill-table {
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 8px;
+  padding: 0px 30px 30px 30px;
+}
+
+.bill-header,
+.bill-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.bill-header {
+  font-weight: bold;
+  border-bottom: 2px solid #ccc;
+  height: 40px;
+}
+
+.bill-row {
+  height: 50px;
+  border-bottom: 1px solid #bbbabad0;
+}
+
+.bill-table p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.column-name,
+.column-date {
+  text-align: left;
+}
+
+.column-amount {
+  text-align: right;
+  margin-right: 50%;
+}
+
+.column-status {
+  text-align: center;
+}
+
+.bill-list-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.bill-list {
+  margin-top: 30px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.bill-list h2 {
+  padding: 10px 0 0 0;
+  margin: 10px 0 0 0;
+  text-align: left;
+}

@@ -1,10 +1,10 @@
 export function BillItem({ bill }) {
   return (
-    <li className="bill-item">
-      <p>{bill.name}</p>
-      <p>{bill.amount}</p>
-      <p>{bill.dueDate.toLocaleDateString()}</p>
-      <p>{bill.paid ? "Paid" : "Unpaid"}</p>
+    <li className="bill-row">
+      <p className="column-name">{bill.name}</p>
+      <p className="column-amount">{bill.amount}</p>
+      <p className="column-date">{bill.dueDate.toLocaleDateString()}</p>
+      <p className="column-status">{bill.paid ? "Paid" : "Unpaid"}</p>
     </li>
   );
 }

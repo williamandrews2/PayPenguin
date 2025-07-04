@@ -5,6 +5,8 @@
   text-align: center;
 }
 
+/* Main app containers */
+
 .app-container-wrapper {
   display: flex;
   justify-content: center;
@@ -17,6 +19,8 @@
 .app-container {
   width: 85%;
 }
+
+/* Main navigation bar/header */
 
 header {
   display: flex;
@@ -34,6 +38,8 @@ header {
   width: auto;
   padding-right: 10px;
 }
+
+/* Add new bill section */
 
 .new-bill-section {
   display: flex;
@@ -58,21 +64,4 @@ header {
 
 .react-datepicker__input-container input {
   width: 100%;
-}
-
-.bill-list {
-  margin-top: 30px;
-  background-color: white;
-  border-radius: 10px;
-}
-
-.bill-list h2 {
-  padding: 10px 0 10px 20px;
-  margin: 10px 0px;
-  text-align: left;
-}
-
-.bill-item {
-  display: flex;
-  justify-content: space-around;
 }

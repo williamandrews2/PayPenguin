@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { BillForm } from "./components/BillForm";
 import "./styles/App.css";
 import { BillList } from "./components/BillList";
+import "./styles/billList.css";
 
 function App() {
   const [bills, setBills] = useState([]);
