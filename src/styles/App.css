@@ -65,3 +65,17 @@ header {
 .react-datepicker__input-container input {
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  #root {
+    padding: 0;
+  }
+
+  .app-container-wrapper {
+    min-height: 100vh;
+  }
+
+  .app-container {
+    width: 95%;
+  }
+}

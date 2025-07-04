@@ -87,3 +87,26 @@
 .unpaid:hover {
   color: white;
 }
+
+@media (max-width: 600px) {
+  .bill-table {
+    padding: 0px 6px 30px 6px;
+  }
+
+  .bill-header,
+  .bill-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .column-amount {
+    margin-right: 10%;
+  }
+
+  .bill-row {
+    min-height: 50px;
+    height: auto;
+  }
+}
