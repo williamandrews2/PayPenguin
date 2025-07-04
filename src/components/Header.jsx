@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../assets/penguinlogo2.png";
 
 function Header() {

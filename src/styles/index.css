@@ -8,7 +8,6 @@
   --font-color-hover: #6abeff;
   --bg-color-1: #9cd7f3;
 
-  color-scheme: light dark;
   color: var(--font-color);
   background-color: var(--bg-color-1);
 
