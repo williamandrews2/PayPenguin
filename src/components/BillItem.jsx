@@ -3,7 +3,7 @@ export function BillItem({ bill }) {
     <li className="bill-item">
       <p>{bill.name}</p>
       <p>{bill.amount}</p>
-      <p>{bill.dueDate}</p>
+      <p>{bill.dueDate.toLocaleDateString()}</p>
     </li>
   );
 }

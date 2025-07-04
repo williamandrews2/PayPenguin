@@ -36,3 +36,8 @@ header {
   gap: 10px;
   justify-content: center;
 }
+
+.bill-item {
+  display: flex;
+  justify-content: space-around;
+}
