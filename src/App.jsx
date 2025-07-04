@@ -19,7 +19,7 @@ function App() {
         dueDate: new Date(bill.dueDate),
       }));
     } catch (error) {
-      console.error("There was an error parsing localStorage.");
+      console.error("Failed to parse bills from local storage. Error: ", error);
       return [];
     }
   });
