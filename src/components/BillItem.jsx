@@ -4,6 +4,7 @@ export function BillItem({ bill }) {
       <p>{bill.name}</p>
       <p>{bill.amount}</p>
       <p>{bill.dueDate.toLocaleDateString()}</p>
+      <p>{bill.paid ? "Paid" : "Unpaid"}</p>
     </li>
   );
 }
