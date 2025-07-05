@@ -73,21 +73,13 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.paid:hover {
-  color: white;
-  background-color: rgb(96, 224, 96);
-}
-
 .unpaid {
   color: #159dfa;
   background-color: #d1e5f3;
   transition: background-color 0.2s ease-in-out;
 }
 
-.unpaid:hover {
-  color: white;
-}
-
+/* Mobile optimization */
 @media (max-width: 600px) {
   .bill-table {
     padding: 0px 6px 30px 6px;
@@ -108,5 +100,17 @@
   .bill-row {
     min-height: 50px;
     height: auto;
+  }
+}
+
+/* Desktop optimization */
+@media (min-width: 1024px) {
+  .paid:hover {
+    color: white;
+    background-color: rgb(96, 224, 96);
+  }
+
+  .unpaid:hover {
+    color: white;
   }
 }
