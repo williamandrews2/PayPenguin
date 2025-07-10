@@ -14,9 +14,12 @@ export function BillList({ bills, togglePaid }) {
             <p className="column-status">Status</p>
           </header>
           <ul>
-            {bills.map((bill) => (
-              <BillItem key={bill.id} bill={bill} togglePaid={togglePaid} />
-            ))}
+            {/* sort the bills by date */}
+            {[...bills]
+              .sort((a, b) => a.dueDate - b.dueDate)
+              .map((bill) => (
+                <BillItem key={bill.id} bill={bill} togglePaid={togglePaid} />
+              ))}
           </ul>
         </div>
       </div>
