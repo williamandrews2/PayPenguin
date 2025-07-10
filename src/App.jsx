@@ -4,6 +4,7 @@ import { BillForm } from "./components/BillForm";
 import "./styles/App.css";
 import { BillList } from "./components/BillList";
 import "./styles/billList.css";
+import BillControls from "./components/BillControls";
 
 function App() {
   // initialize state from localStorage
@@ -41,6 +42,20 @@ function App() {
     );
   }
 
+  function resetStatus() {
+    if (
+      confirm("Are you sure you want to reset the paid status of all bills?")
+    ) {
+      setBills((prevBills) =>
+        prevBills.map((bill) => ({ ...bill, paid: false }))
+      );
+    }
+  }
+
+  function enableEditMode() {}
+
+  function enableDeleteMode() {}
+
   return (
     <>
       <div className="app-container-wrapper">
@@ -48,6 +63,11 @@ function App() {
           <Header />
           <BillForm onAdd={addBill} />
           <BillList bills={bills} togglePaid={togglePaid} />
+          <BillControls
+            enableDeleteMode={enableDeleteMode}
+            enableEditMode={enableEditMode}
+            resetStatus={resetStatus}
+          />
         </div>
       </div>
     </>
