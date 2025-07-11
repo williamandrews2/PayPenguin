@@ -1,11 +1,8 @@
-function BillControls({ resetStatus, enableEditMode, enableDeleteMode }) {
+function BillControls({ resetStatus, enableEditMode, editMode }) {
   return (
     <div className="bill-controls">
-      <button className="delete-button" onClick={enableDeleteMode}>
-        Delete
-      </button>
       <button className="edit-button" onClick={enableEditMode}>
-        Edit
+        {editMode ? "Done" : "Edit"}
       </button>
       <button className="reset-button" onClick={resetStatus}>
         Reset Status

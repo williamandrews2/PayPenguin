@@ -52,9 +52,11 @@ function App() {
     }
   }
 
-  function enableEditMode() {}
-
-  function enableDeleteMode() {}
+  function handleDelete(id) {
+    if (confirm("Are you sure you want to delete this bill?")) {
+      setBills((prevBills) => prevBills.filter((bill) => bill.id !== id));
+    }
+  }
 
   return (
     <>
@@ -62,10 +64,10 @@ function App() {
         <div className="app-container">
           <Header />
           <BillForm onAdd={addBill} />
-          <BillList bills={bills} togglePaid={togglePaid} />
-          <BillControls
-            enableDeleteMode={enableDeleteMode}
-            enableEditMode={enableEditMode}
+          <BillList
+            bills={bills}
+            togglePaid={togglePaid}
+            handleDelete={handleDelete}
             resetStatus={resetStatus}
           />
         </div>

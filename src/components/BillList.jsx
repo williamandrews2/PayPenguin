@@ -1,7 +1,9 @@
 import { BillItem } from "./BillItem";
 import { useState } from "react";
+import BillControls from "./BillControls";
 
-export function BillList({ bills, togglePaid }) {
+export function BillList({ bills, togglePaid, handleDelete, resetStatus }) {
+  const [editMode, setEditMode] = useState(false);
   const [sortBy, setSortBy] = useState("Due Date (earliest)");
 
   const sortedBills = [
@@ -24,6 +26,11 @@ export function BillList({ bills, togglePaid }) {
       }
     }),
   ];
+
+  function enableEditMode() {
+    console.log(`edit mode set to: ${editMode}`);
+    setEditMode(!editMode);
+  }
 
   // only render when one or more bills have been added
   if (bills.length > 0) {
@@ -57,9 +64,20 @@ export function BillList({ bills, togglePaid }) {
           </header>
           <ul>
             {sortedBills.map((bill) => (
-              <BillItem key={bill.id} bill={bill} togglePaid={togglePaid} />
+              <BillItem
+                key={bill.id}
+                bill={bill}
+                togglePaid={togglePaid}
+                handleDelete={handleDelete}
+                editMode={editMode}
+              />
             ))}
           </ul>
+          <BillControls
+            editMode={editMode}
+            enableEditMode={enableEditMode}
+            resetStatus={resetStatus}
+          />
         </div>
       </div>
     );

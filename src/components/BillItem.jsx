@@ -1,4 +1,4 @@
-export function BillItem({ bill, togglePaid }) {
+export function BillItem({ bill, togglePaid, handleDelete, editMode }) {
   return (
     <li className="bill-row">
       <p className="column-name">{bill.name}</p>
@@ -15,6 +15,14 @@ export function BillItem({ bill, togglePaid }) {
       >
         {bill.paid ? "Paid" : "Unpaid"}
       </button>
+      {editMode && (
+        <button
+          className="delete-button"
+          onClick={() => {
+            handleDelete(bill.id);
+          }}
+        ></button>
+      )}
     </li>
   );
 }
