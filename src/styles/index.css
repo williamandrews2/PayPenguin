@@ -45,7 +45,8 @@ p {
   font-size: 1.2rem;
 }
 
-input {
+input,
+label {
   font-size: 1.2rem;
   padding: 10px 10px;
   border-radius: 10px;
@@ -61,6 +62,30 @@ button {
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+}
+
+select {
+  width: 200px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23999' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px 8px;
+}
+
+select:focus {
+  border-color: #7a9cff;
+  box-shadow: 0 0 0 2px rgba(122, 156, 255, 0.3);
 }
 
 /* Mobile optimization */

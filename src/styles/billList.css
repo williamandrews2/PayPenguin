@@ -7,6 +7,12 @@
   margin-bottom: 30px;
 }
 
+.bill-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .bill-header,
 .bill-row {
   display: grid;
@@ -61,8 +67,6 @@
 }
 
 .bill-list h2 {
-  padding: 10px 0 0 0;
-  margin: 10px 0 0 0;
   text-align: left;
 }
 
@@ -82,7 +86,11 @@
 /* Mobile optimization */
 @media (max-width: 600px) {
   .bill-table {
-    padding: 0px 6px 30px 6px;
+    padding: 0px 10px 30px 10px;
+  }
+
+  .bill-section-header {
+    flex-direction: column;
   }
 
   .bill-header,
