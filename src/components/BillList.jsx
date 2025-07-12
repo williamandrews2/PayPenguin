@@ -1,11 +1,21 @@
 import { BillItem } from "./BillItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BillControls from "./BillControls";
 
-export function BillList({ bills, togglePaid, handleDelete, resetStatus }) {
+export function BillList({ bills, setBills }) {
   const [editMode, setEditMode] = useState(false);
   const [sortBy, setSortBy] = useState("Due Date (earliest)");
+  const [editableBills, setEditableBills] = useState([]);
 
+  // create a clone of the bills array to edit (dependant on bills array and editMode)
+  useEffect(() => {
+    if (editMode) {
+      const cloned = [...bills];
+      setEditableBills(cloned);
+    }
+  }, [editMode, bills]);
+
+  // sort the bills on render based on the select field
   const sortedBills = [
     ...bills.sort((a, b) => {
       switch (sortBy) {
@@ -27,9 +37,48 @@ export function BillList({ bills, togglePaid, handleDelete, resetStatus }) {
     }),
   ];
 
+  function updateBillField(id, field, value) {
+    // rewrite the editableBills array with the new value passed from the BillItem
+    setEditableBills((prev) =>
+      prev.map((bill) => (bill.id === id ? { ...bill, [field]: value } : bill))
+    );
+  }
+
+  function saveAll() {
+    const updated = editableBills.map((bill) => ({
+      ...bill,
+      amount: parseFloat(bill.amount),
+    }));
+    setBills(updated);
+    enableEditMode();
+  }
+
   function enableEditMode() {
-    console.log(`edit mode set to: ${editMode}`);
     setEditMode(!editMode);
+  }
+
+  function handleDelete(id) {
+    if (confirm("Are you sure you want to delete this bill?")) {
+      setBills((prevBills) => prevBills.filter((bill) => bill.id !== id));
+    }
+  }
+
+  function togglePaid(id) {
+    setBills((prevBills) =>
+      prevBills.map((bill) =>
+        bill.id === id ? { ...bill, paid: !bill.paid } : bill
+      )
+    );
+  }
+
+  function resetStatus() {
+    if (
+      confirm("Are you sure you want to reset the paid status of all bills?")
+    ) {
+      setBills((prevBills) =>
+        prevBills.map((bill) => ({ ...bill, paid: false }))
+      );
+    }
   }
 
   // only render when one or more bills have been added
@@ -63,19 +112,21 @@ export function BillList({ bills, togglePaid, handleDelete, resetStatus }) {
             <p className="column-status">Status</p>
           </header>
           <ul>
-            {sortedBills.map((bill) => (
+            {(editMode ? editableBills : sortedBills).map((bill) => (
               <BillItem
                 key={bill.id}
                 bill={bill}
                 togglePaid={togglePaid}
                 handleDelete={handleDelete}
                 editMode={editMode}
+                updateBillField={updateBillField}
               />
             ))}
           </ul>
           <BillControls
             editMode={editMode}
             enableEditMode={enableEditMode}
+            saveAll={saveAll}
             resetStatus={resetStatus}
           />
         </div>

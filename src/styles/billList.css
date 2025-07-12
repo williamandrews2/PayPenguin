@@ -39,6 +39,8 @@
   margin-bottom: 0;
 }
 
+/* bill table columns */
+
 .column-name,
 .column-date {
   text-align: left;
@@ -51,6 +53,18 @@
 
 .column-status {
   text-align: center;
+}
+
+/* bill table columns in edit modes */
+.column-edit-name,
+.column-edit-date {
+  width: 100%;
+  text-align: left;
+}
+
+.column-edit-amount {
+  width: 100%;
+  text-align: right;
 }
 
 .bill-list-header {
@@ -109,6 +123,11 @@
   color: #159dfa;
   background-color: #e7e7e7;
   margin-left: 10px;
+}
+
+.bill-controls .save-button {
+  color: white;
+  background-color: rgb(85, 212, 85);
 }
 
 /* Mobile optimization */

@@ -34,42 +34,13 @@ function App() {
     setBills((prevBills) => [...prevBills, newBill]);
   }
 
-  function togglePaid(id) {
-    setBills((prevBills) =>
-      prevBills.map((bill) =>
-        bill.id === id ? { ...bill, paid: !bill.paid } : bill
-      )
-    );
-  }
-
-  function resetStatus() {
-    if (
-      confirm("Are you sure you want to reset the paid status of all bills?")
-    ) {
-      setBills((prevBills) =>
-        prevBills.map((bill) => ({ ...bill, paid: false }))
-      );
-    }
-  }
-
-  function handleDelete(id) {
-    if (confirm("Are you sure you want to delete this bill?")) {
-      setBills((prevBills) => prevBills.filter((bill) => bill.id !== id));
-    }
-  }
-
   return (
     <>
       <div className="app-container-wrapper">
         <div className="app-container">
           <Header />
           <BillForm onAdd={addBill} />
-          <BillList
-            bills={bills}
-            togglePaid={togglePaid}
-            handleDelete={handleDelete}
-            resetStatus={resetStatus}
-          />
+          <BillList bills={bills} setBills={setBills} />
         </div>
       </div>
     </>
