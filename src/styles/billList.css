@@ -16,7 +16,7 @@
 .bill-header,
 .bill-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1fr;
+  grid-template-columns: 2fr 1fr 1.5fr 1fr auto;
   gap: 12px;
   align-items: center;
 }
@@ -58,14 +58,28 @@
 /* bill table columns in edit modes */
 .column-edit-name,
 .column-edit-date {
-  width: 100%;
+  min-width: 0;
   text-align: left;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .column-edit-amount {
-  width: 100%;
+  min-width: 0px;
   text-align: right;
+  padding-left: 0px;
+  padding-right: 0px;
 }
+
+.column-edit-date
+  .react-datepicker-wrapper
+  .react-datepicker__input-container
+  input {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/* ----- */
 
 .bill-list-header {
   display: flex;
@@ -155,6 +169,7 @@
   .bill-row {
     min-height: 50px;
     height: auto;
+    gap: 12px;
   }
 }
 
@@ -177,5 +192,9 @@
   .bill-controls button:hover {
     color: white;
     background-color: #48b3fa;
+  }
+
+  .column-edit-amount {
+    margin-right: 35%;
   }
 }
