@@ -41,6 +41,7 @@ export function BillList({ bills, setBills }) {
 
   function addBill(newBill) {
     setBills((prevBills) => [...prevBills, newBill]);
+    setAddMode(false);
   }
 
   function updateBillField(id, field, value) {

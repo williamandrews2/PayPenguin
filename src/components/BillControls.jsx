@@ -8,13 +8,6 @@ function BillControls({
 }) {
   return (
     <div className="bill-controls">
-      {/* render during add mode */}
-      {addMode && (
-        <button className="green-button" onClick={enableAddMode}>
-          Done
-        </button>
-      )}
-
       {/* render during viewing mode */}
       {!addMode && <button onClick={enableAddMode}>Add Bill</button>}
 
