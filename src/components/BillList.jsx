@@ -145,7 +145,7 @@ export function BillList({ bills, setBills }) {
           addMode={addMode}
           enableAddMode={enableAddMode}
         />
-        {addMode && <BillForm onAdd={addBill} />}
+        {addMode && <BillForm onAdd={addBill} enableAddMode={enableAddMode} />}
       </div>
     </div>
   );

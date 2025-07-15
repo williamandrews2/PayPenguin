@@ -3,6 +3,11 @@
   justify-content: center;
 }
 
+.bill-form-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .bill-form-title {
   margin: 0px 0px 10px 0px;
 }

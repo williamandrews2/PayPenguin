@@ -107,7 +107,8 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.unpaid {
+.unpaid,
+.cancel-button {
   color: #159dfa;
   background-color: #d1e5f3;
   transition: background-color 0.2s ease-in-out;
@@ -180,7 +181,8 @@
     background-color: rgb(96, 224, 96);
   }
 
-  .unpaid:hover {
+  .unpaid:hover,
+  .cancel-button:hover {
     color: white;
   }
 

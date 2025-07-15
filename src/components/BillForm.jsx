@@ -2,7 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export function BillForm({ onAdd }) {
+export function BillForm({ onAdd, enableAddMode }) {
   // bill props
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
@@ -34,7 +34,12 @@ export function BillForm({ onAdd }) {
 
   return (
     <>
-      <h3 className="bill-form-title">Add New Bill</h3>
+      <div className="bill-form-header">
+        <h3 className="bill-form-title">Add New Bill</h3>
+        <button className="cancel-button" onClick={enableAddMode}>
+          Cancel
+        </button>
+      </div>
       <form onSubmit={handleSubmit} className="bill-form">
         <input
           type="text"
