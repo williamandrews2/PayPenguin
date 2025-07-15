@@ -1,0 +1,33 @@
+.new-bill-section {
+  display: flex;
+  justify-content: center;
+}
+
+.bill-form-title {
+  margin: 0px 0px 10px 0px;
+}
+
+.bill-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.bill-form input,
+.bill-form .datepicker-wrapper .react-datepicker__input-container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 130px;
+  box-sizing: border-box;
+}
+
+.bill-form input,
+.bill-form .datepicker-wrapper .react-datepicker__input-container input {
+  border: 1px solid gray;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+}

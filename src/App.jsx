@@ -5,6 +5,7 @@ import "./styles/App.css";
 import { BillList } from "./components/BillList";
 import "./styles/billList.css";
 import BillControls from "./components/BillControls";
+import "./styles/billForm.css";
 
 function App() {
   // initialize state from localStorage
@@ -30,16 +31,11 @@ function App() {
     localStorage.setItem("bills", JSON.stringify(bills));
   }, [bills]);
 
-  function addBill(newBill) {
-    setBills((prevBills) => [...prevBills, newBill]);
-  }
-
   return (
     <>
       <div className="app-container-wrapper">
         <div className="app-container">
           <Header />
-          <BillForm onAdd={addBill} />
           <BillList bills={bills} setBills={setBills} />
         </div>
       </div>

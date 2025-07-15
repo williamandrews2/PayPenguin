@@ -39,33 +39,6 @@ header {
   padding-right: 10px;
 }
 
-/* Add new bill section */
-
-.new-bill-section {
-  display: flex;
-  justify-content: center;
-}
-
-.bill-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-.bill-form input,
-.bill-form .datepicker-wrapper .react-datepicker__input-container {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
-  min-width: 130px;
-  box-sizing: border-box;
-}
-
-.react-datepicker__input-container input {
-  width: 100%;
-}
-
 @media (max-width: 600px) {
   #root {
     padding: 0;

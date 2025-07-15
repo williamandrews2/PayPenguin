@@ -24,7 +24,6 @@ export function BillForm({ onAdd }) {
       paid: false,
     };
 
-    // add the bill into the callback that was passed in
     onAdd(newBill);
 
     // clear out the fields shown on the form
@@ -35,7 +34,7 @@ export function BillForm({ onAdd }) {
 
   return (
     <>
-      <h3>New Bill</h3>
+      <h3 className="bill-form-title">Add New Bill</h3>
       <form onSubmit={handleSubmit} className="bill-form">
         <input
           type="text"
