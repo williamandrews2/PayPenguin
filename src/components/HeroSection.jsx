@@ -1,4 +1,5 @@
 import penguin from "../assets/penguinwithbowtie.png";
+import { Link } from "react-router-dom";
 import "../styles/heroSection.css";
 
 export function HeroSection() {
@@ -11,7 +12,10 @@ export function HeroSection() {
           easy-to-use interface, so you can stay on top of finances without the
           stress.
         </p>
-        <button className="get-started-button">Get Started</button>
+
+        <Link to="dashboard" className="get-started-button">
+          Get Started
+        </Link>
       </div>
     </div>
   );
