@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+}
+
+.branding img {
+  height: 40px;
+  width: auto;
+  padding-right: 10px;
+}

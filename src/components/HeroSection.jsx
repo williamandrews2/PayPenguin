@@ -1,0 +1,18 @@
+import penguin from "../assets/penguinwithbowtie.png";
+import "../styles/heroSection.css";
+
+export function HeroSection() {
+  return (
+    <div className="hero-section">
+      <div className="hero-headings">
+        <h1>Chill about your bills.</h1>
+        <p>
+          PayPenguin helps you track your monthly payments in a simple,
+          easy-to-use interface, so you can stay on top of finances without the
+          stress.
+        </p>
+        <button className="get-started-button">Get Started</button>
+      </div>
+    </div>
+  );
+}

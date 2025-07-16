@@ -6,6 +6,7 @@ import { BillList } from "./components/BillList";
 import "./styles/billList.css";
 import BillControls from "./components/BillControls";
 import "./styles/billForm.css";
+import "./styles/header.css";
 
 function App() {
   // initialize state from localStorage

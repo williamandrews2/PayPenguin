@@ -5,8 +5,6 @@
   text-align: center;
 }
 
-/* Main app containers */
-
 .app-container-wrapper {
   display: flex;
   justify-content: center;
@@ -17,27 +15,10 @@
 }
 
 .app-container {
-  width: 85%;
+  width: 95%;
 }
 
-/* Main navigation bar/header */
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.branding {
-  display: flex;
-  align-items: center;
-}
-
-.branding img {
-  height: 40px;
-  width: auto;
-  padding-right: 10px;
-}
+/* mobile optimization */
 
 @media (max-width: 600px) {
   #root {
