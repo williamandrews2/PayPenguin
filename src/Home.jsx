@@ -1,3 +1,4 @@
+import FeatureSection from "./components/FeatureSection";
 import Header from "./components/Header";
 import { HeroSection } from "./components/HeroSection";
 import "./styles/header.css";
@@ -8,6 +9,7 @@ function Home() {
       <div className="app-container">
         <Header />
         <HeroSection />
+        <FeatureSection />
       </div>
     </div>
   );

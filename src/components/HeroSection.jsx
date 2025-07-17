@@ -4,7 +4,7 @@ import "../styles/heroSection.css";
 
 export function HeroSection() {
   return (
-    <div className="hero-section">
+    <section className="hero-section">
       <div className="hero-headings">
         <h1>Chill about your bills.</h1>
         <p>
@@ -18,6 +18,6 @@ export function HeroSection() {
         </Link>
       </div>
       <img src={penguin} alt="penguin image" />
-    </div>
+    </section>
   );
 }
