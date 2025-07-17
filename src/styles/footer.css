@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  margin-top: 40px;
+  background-color: #084471;
+}
+
+.footer-link {
+  color: white;
+  font-size: 1.75rem;
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .footer-link:hover {
+    transform: scale(1.2);
+  }
+}

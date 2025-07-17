@@ -7,6 +7,7 @@ import "./styles/billList.css";
 import BillControls from "./components/BillControls";
 import "./styles/billForm.css";
 import "./styles/header.css";
+import Footer from "./components/Footer";
 
 function App() {
   // initialize state from localStorage
@@ -40,6 +41,7 @@ function App() {
           <BillList bills={bills} setBills={setBills} />
         </div>
       </div>
+      <Footer />
     </>
   );
 }
