@@ -1,4 +1,4 @@
-import penguin from "../assets/penguinwithbowtie.png";
+import penguin from "../assets/paypenguinheroimage.png";
 import { Link } from "react-router-dom";
 import "../styles/heroSection.css";
 
@@ -17,6 +17,7 @@ export function HeroSection() {
           Get Started
         </Link>
       </div>
+      <img src={penguin} alt="penguin image" />
     </div>
   );
 }
