@@ -9,14 +9,17 @@ const ErrorPage = () => {
       <div className="app-container">
         <Header />
         <h1>Uh oh, this page doesn't exist!</h1>
-        <Link to="/">
-          You can go back to the home page by clicking here, though!
-        </Link>
-        {/* <img
-          className="error-page-img"
-          src={confusedPenguin}
-          alt="confused-penguin"
-        /> */}
+        <div className="error-container">
+          <img
+            className="error-page-img"
+            src={confusedPenguin}
+            alt="confused-penguin"
+          />
+
+          <Link to="/">
+            You can go back to the home page by clicking here, though!
+          </Link>
+        </div>
       </div>
     </div>
   );
