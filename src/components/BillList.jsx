@@ -95,7 +95,6 @@ export function BillList({ bills, setBills }) {
   // only render when one or more bills have been added
   return (
     <>
-      <h1>Welcome back!</h1>
       <div className="bill-list">
         <div className="bill-table">
           <div className="bill-section-header">
