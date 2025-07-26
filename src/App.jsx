@@ -8,6 +8,7 @@ import BillControls from "./components/BillControls";
 import "./styles/billForm.css";
 import "./styles/header.css";
 import Footer from "./components/Footer";
+import "normalize.css";
 
 function App() {
   // initialize state from localStorage
