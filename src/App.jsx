@@ -7,6 +7,7 @@ import "./styles/billForm.css";
 import "./styles/header.css";
 import Footer from "./components/Footer";
 import "normalize.css";
+import { BillContext } from "./contexts/BillContext";
 
 function App() {
   // initialize state from localStorage
@@ -37,7 +38,9 @@ function App() {
       <div className="app-container-wrapper">
         <div className="app-container">
           <Header />
-          <BillList bills={bills} setBills={setBills} />
+          <BillContext.Provider value={{ bills, setBills }}>
+            <BillList />
+          </BillContext.Provider>
         </div>
       </div>
       <Footer />

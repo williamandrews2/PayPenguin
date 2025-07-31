@@ -2,12 +2,14 @@ import { BillItem } from "./BillItem";
 import { useEffect, useState } from "react";
 import BillControls from "./BillControls";
 import { BillForm } from "./BillForm";
+import { useBillContext } from "../contexts/BillContext";
 
-export function BillList({ bills, setBills }) {
+export function BillList() {
   const [editMode, setEditMode] = useState(false);
   const [addMode, setAddMode] = useState(false);
   const [sortBy, setSortBy] = useState("Due Date (earliest)");
   const [editableBills, setEditableBills] = useState([]);
+  const { bills, setBills } = useBillContext();
 
   // create a clone of the bills array to edit (dependant on bills array and editMode)
   useEffect(() => {

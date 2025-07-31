@@ -11,6 +11,7 @@ const routes = [
   {
     path: "dashboard",
     element: <App />,
+    errorElement: <ErrorPage />,
   },
 ];
 
