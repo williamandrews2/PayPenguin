@@ -2,12 +2,14 @@ import { BillItem } from "./BillItem";
 import { useEffect, useState } from "react";
 import BillControls from "./BillControls";
 import { BillForm } from "./BillForm";
+import { useBillContext } from "../contexts/BillContext";
 
-export function BillList({ bills, setBills }) {
+export function BillList() {
   const [editMode, setEditMode] = useState(false);
   const [addMode, setAddMode] = useState(false);
   const [sortBy, setSortBy] = useState("Due Date (earliest)");
   const [editableBills, setEditableBills] = useState([]);
+  const { bills, setBills } = useBillContext();
 
   // create a clone of the bills array to edit (dependant on bills array and editMode)
   useEffect(() => {
@@ -100,59 +102,63 @@ export function BillList({ bills, setBills }) {
 
   // only render when one or more bills have been added
   return (
-    <div className="bill-list">
-      <div className="bill-table">
-        <div className="bill-section-header">
-          <h2>Monthly Bills</h2>
-          <div className="sort-by-wrapper">
-            <label htmlFor="sort">Sort by:</label>
-            <select
-              name="sort"
-              id="sort"
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-            >
-              <option value="Amount (largest)">Amount (largest)</option>
-              <option value="Amount (smallest)">Amount (smallest)</option>
-              <option value="Due Date (earliest)">Due Date (earliest)</option>
-              <option value="Due Date (latest)">Due Date (latest)</option>
-              <option value="Paid">Paid</option>
-              <option value="Unpaid">Unpaid</option>
-            </select>
+    <>
+      <div className="bill-list">
+        <div className="bill-table">
+          <div className="bill-section-header">
+            <h2>Monthly Bills</h2>
+            <div className="sort-by-wrapper">
+              <label htmlFor="sort">Sort by:</label>
+              <select
+                name="sort"
+                id="sort"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <option value="Amount (largest)">Amount (largest)</option>
+                <option value="Amount (smallest)">Amount (smallest)</option>
+                <option value="Due Date (earliest)">Due Date (earliest)</option>
+                <option value="Due Date (latest)">Due Date (latest)</option>
+                <option value="Paid">Paid</option>
+                <option value="Unpaid">Unpaid</option>
+              </select>
+            </div>
           </div>
+          <header className="bill-header">
+            <p className="column-name">Name</p>
+            <p className="column-amount">Amount</p>
+            <p className="column-date">Due Date</p>
+            <p className="column-status">Status</p>
+          </header>
+          {bills.length > 0 ? (
+            <ul>
+              {(editMode ? editableBills : sortedBills).map((bill) => (
+                <BillItem
+                  key={bill.id}
+                  bill={bill}
+                  togglePaid={togglePaid}
+                  handleDelete={handleDelete}
+                  editMode={editMode}
+                  updateBillField={updateBillField}
+                />
+              ))}
+            </ul>
+          ) : (
+            <div>No bills have been added yet!</div>
+          )}
+          <BillControls
+            editMode={editMode}
+            enableEditMode={enableEditMode}
+            saveAll={saveAll}
+            resetStatus={resetStatus}
+            addMode={addMode}
+            enableAddMode={enableAddMode}
+          />
+          {addMode && (
+            <BillForm onAdd={addBill} enableAddMode={enableAddMode} />
+          )}
         </div>
-        <header className="bill-header">
-          <p className="column-name">Name</p>
-          <p className="column-amount">Amount</p>
-          <p className="column-date">Due Date</p>
-          <p className="column-status">Status</p>
-        </header>
-        {bills.length > 0 ? (
-          <ul>
-            {(editMode ? editableBills : sortedBills).map((bill) => (
-              <BillItem
-                key={bill.id}
-                bill={bill}
-                togglePaid={togglePaid}
-                handleDelete={handleDelete}
-                editMode={editMode}
-                updateBillField={updateBillField}
-              />
-            ))}
-          </ul>
-        ) : (
-          <div>No bills have been added yet!</div>
-        )}
-        <BillControls
-          editMode={editMode}
-          enableEditMode={enableEditMode}
-          saveAll={saveAll}
-          resetStatus={resetStatus}
-          addMode={addMode}
-          enableAddMode={enableAddMode}
-        />
-        {addMode && <BillForm onAdd={addBill} enableAddMode={enableAddMode} />}
       </div>
-    </div>
+    </>
   );
 }

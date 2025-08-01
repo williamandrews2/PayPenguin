@@ -7,7 +7,7 @@
   /* CSS Variables */
   --font-color: #084471;
   --font-color-hover: #6abeff;
-  --bg-color-1: #9cd7f3;
+  --bg-color-1: #caeefe;
   --button-bg-color: #2a7bb4;
 
   color: var(--font-color);
@@ -17,6 +17,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 h3 {

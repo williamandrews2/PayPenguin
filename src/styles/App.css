@@ -1,21 +1,19 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  min-height: 100vh;
 }
 
 .app-container-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
-  min-height: 80vh;
-  border-radius: 20px;
+  min-height: 100vh;
   background-color: #caeefe;
 }
 
 .app-container {
-  width: 95%;
+  width: 85%;
 }
 
 /* mobile optimization */

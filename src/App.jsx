@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-import { BillForm } from "./components/BillForm";
 import "./styles/App.css";
 import { BillList } from "./components/BillList";
 import "./styles/billList.css";
-import BillControls from "./components/BillControls";
 import "./styles/billForm.css";
 import "./styles/header.css";
+import Footer from "./components/Footer";
+import "normalize.css";
+import { BillContext } from "./contexts/BillContext";
 
 function App() {
   // initialize state from localStorage
@@ -37,9 +38,12 @@ function App() {
       <div className="app-container-wrapper">
         <div className="app-container">
           <Header />
-          <BillList bills={bills} setBills={setBills} />
+          <BillContext.Provider value={{ bills, setBills }}>
+            <BillList />
+          </BillContext.Provider>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

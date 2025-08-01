@@ -1,0 +1,12 @@
+.error-page-img {
+  max-width: 50vw;
+  max-height: 50vh;
+  height: auto;
+  width: auto;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
