@@ -84,10 +84,16 @@ export function BillList({ bills, setBills }) {
 
   function resetStatus() {
     if (
-      confirm("Are you sure you want to reset the paid status of all bills?")
+      confirm(
+        "Are you sure you want to reset the paid status of all bills? This will also advance all due dates to the next month."
+      )
     ) {
       setBills((prevBills) =>
-        prevBills.map((bill) => ({ ...bill, paid: false }))
+        prevBills.map((bill) => {
+          const nextDate = new Date(bill.dueDate);
+          nextDate.setMonth(nextDate.getMonth() + 1);
+          return { ...bill, paid: false, dueDate: nextDate };
+        })
       );
     }
   }
