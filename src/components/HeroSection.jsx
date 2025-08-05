@@ -1,4 +1,4 @@
-import penguin from "../assets/paypenguinheroimage.png";
+import penguin from "../assets/paypenguinheroimage.webp";
 import { Link } from "react-router-dom";
 import "../styles/heroSection.css";
 

@@ -1,4 +1,4 @@
-import logo from "../assets/penguinlogo2.png";
+import logo from "../assets/penguinlogo2.webp";
 
 function Header() {
   return (
