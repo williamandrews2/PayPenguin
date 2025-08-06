@@ -1,6 +1,6 @@
 # PayPenguin 🐧 – Bill Tracking App
 
-PayPenguin is a simple, responsive bill tracking app built with ReactJS. It helps users keep track of monthly recurring bills with options to mark bills as paid, sort by due date, edit or delete entries, and persist data between sessions using localStorage.
+PayPenguin is a simple, responsive bill tracking app built with ReactJS and Vite. It helps users keep track of monthly recurring bills with options to mark bills as paid, sort by due date, edit or delete entries, and persist data between sessions using localStorage.
 
 ## 🧩 Features
 
