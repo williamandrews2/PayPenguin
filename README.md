@@ -1,12 +1,19 @@
-# React + Vite
+# PayPenguin 🐧 – Bill Tracking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PayPenguin is a simple, responsive bill tracking app built with ReactJS. It helps users keep track of monthly recurring bills with options to mark bills as paid, sort by due date, edit or delete entries, and persist data between sessions using localStorage.
 
-Currently, two official plugins are available:
+## 🧩 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 💾 **Persistent Storage**: Bills are saved in localStorage so they persist across sessions.
+- 📆 **Due Date Sorting**: Bills are automatically sorted by due date.
+- ✅ **Mark as Paid/Unpaid**: Toggle payment status for individual bills.
+- ✏️ **Edit/Delete Bills**: Update or remove bill entries as needed.
+- 📊 **Amount Formatting**: Clean display of currency values with two decimal places.
+- 📱 **Mobile Responsive**: Fully responsive layout with optimized CSS for smaller screens.
+- 🛠️ **Batch Actions**: Reset all bills to unpaid with one-month advancement or delete them in bulk using the footer controls.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔮 Planned Future Improvements
+- 🔐 Turn into a full-stack app with user authentication and cloud-based storage
+- 📈 Chart visualization of spending trends (planning to use Recharts)
+- 📨 Notifications/reminders for upcoming due dates
+- 📱 Full UI overhaul to look more "modern"
