@@ -17,3 +17,6 @@ PayPenguin is a simple, responsive bill tracking app built with ReactJS and Vite
 - 📈 Chart visualization of spending trends (planning to use Recharts)
 - 📨 Notifications/reminders for upcoming due dates
 - 📱 Full UI overhaul to look more "modern"
+
+## 📸 Screenshots
+<img width="1024" height="768" alt="PC and Mobile mockup template (2)" src="https://github.com/user-attachments/assets/a4fd82bc-965b-4a28-afb8-737c2cca3e09" />
