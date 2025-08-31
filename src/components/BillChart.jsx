@@ -1,7 +1,6 @@
 import { useBillContext } from "../contexts/BillContext";
 import { PieChart, Pie, Cell, Legend } from "recharts";
 import "../styles/chart.css";
-import { useEffect, useState } from "react";
 
 function BillChart() {
   const { bills } = useBillContext();
@@ -28,6 +27,8 @@ function BillChart() {
     "#00CED1", // dark turquoise
   ];
 
+  const chartData = bills.map((bill) => ({ ...bill }));
+
   return (
     <section className="monthly-expense-breakdown">
       <h2>Monthly Expense Breakdown</h2>
@@ -41,13 +42,14 @@ function BillChart() {
             outerRadius={150}
             fill="#084471"
           >
-            {bills.map((bill, index) => (
+            {chartData.map((bill, index) => (
               <Cell
                 key={`Cell ${index}`}
                 fill={COLORS[index % COLORS.length]}
               />
             ))}
           </Pie>
+
           <Legend width={"100%"} />
         </PieChart>
       </div>
