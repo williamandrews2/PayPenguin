@@ -39,10 +39,12 @@ function App() {
       <div className="app-container-wrapper">
         <div className="app-container">
           <Header />
-          <BillContext.Provider value={{ bills, setBills }}>
-            <BillList />
-            <BillChart />
-          </BillContext.Provider>
+          <div className="bill-sections">
+            <BillContext.Provider value={{ bills, setBills }}>
+              <BillList />
+              <BillChart />
+            </BillContext.Provider>
+          </div>
         </div>
       </div>
       <Footer />

@@ -31,3 +31,12 @@
     width: 95%;
   }
 }
+
+@media (min-width: 1024px) {
+  /* (1/4) remove this if reverting to old layout */
+  .bill-sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+}

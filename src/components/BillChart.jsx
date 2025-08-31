@@ -1,6 +1,7 @@
 import { useBillContext } from "../contexts/BillContext";
 import { PieChart, Pie, Cell, Legend } from "recharts";
 import "../styles/chart.css";
+import { useEffect, useState } from "react";
 
 function BillChart() {
   const { bills } = useBillContext();
@@ -26,6 +27,14 @@ function BillChart() {
     "#DA70D6", // orchid
     "#00CED1", // dark turquoise
   ];
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    // remove the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="monthly-expense-breakdown">

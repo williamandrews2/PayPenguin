@@ -1,7 +1,7 @@
 .monthly-expense-breakdown {
   border-radius: 10px;
   background-color: white;
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 0px 30px 10px 30px;
 }
 
@@ -12,12 +12,19 @@
 }
 
 .monthly-expense-breakdown h2 {
-  text-align: left;
-  padding-top: 0.83em;
+  text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  /* (2/4) remove this if reverting to old layout */
   .monthly-expense-breakdown h2 {
-    text-align: center;
+    padding-top: 0.83em;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* (3/4) remove this if reverting to old layout */
+  .monthly-expense-breakdown {
+    width: 35%;
   }
 }

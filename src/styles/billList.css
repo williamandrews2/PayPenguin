@@ -199,4 +199,9 @@
   .column-edit-amount {
     margin-right: 35%;
   }
+
+  .bill-list {
+    /* (4/4) remove this if reverting to old layout */
+    width: 55%;
+  }
 }
