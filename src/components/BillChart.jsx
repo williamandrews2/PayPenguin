@@ -1,5 +1,5 @@
 import { useBillContext } from "../contexts/BillContext";
-import { PieChart, Pie, Cell } from "recharts";
+import { PieChart, Pie, Cell, Legend } from "recharts";
 import "../styles/chart.css";
 
 function BillChart() {
@@ -47,6 +47,7 @@ function BillChart() {
               />
             ))}
           </Pie>
+          <Legend width={"100%"} />
         </PieChart>
       </div>
     </section>
