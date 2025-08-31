@@ -35,7 +35,7 @@ function BillChart() {
       <div className="chart-container">
         <PieChart width={400} height={400}>
           <Pie
-            data={bills}
+            data={chartData}
             dataKey="amount"
             cx="50%"
             cy="50%"

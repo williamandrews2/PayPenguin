@@ -42,7 +42,7 @@ function App() {
           <div className="bill-sections">
             <BillContext.Provider value={{ bills, setBills }}>
               <BillList />
-              {/* <BillChart /> */}
+              <BillChart />
             </BillContext.Provider>
           </div>
         </div>
