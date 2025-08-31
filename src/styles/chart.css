@@ -1,5 +1,23 @@
+.monthly-expense-breakdown {
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 40px;
+  padding: 0px 30px 10px 30px;
+}
+
 .chart-container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.monthly-expense-breakdown h2 {
+  text-align: left;
+  padding-top: 0.83em;
+}
+
+@media (max-width: 600px) {
+  .monthly-expense-breakdown h2 {
+    text-align: center;
+  }
 }
