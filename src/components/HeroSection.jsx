@@ -13,7 +13,7 @@ export function HeroSection() {
           stress.
         </p>
 
-        <Link to="dashboard" className="get-started-button">
+        <Link to="dashboard" className="get-started-button" id="hero-image">
           Get Started
         </Link>
       </div>
