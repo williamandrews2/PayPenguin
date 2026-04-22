@@ -2,6 +2,7 @@ import App from "./App";
 import Home from "./Home";
 import ErrorPage from "./ErrorPage";
 import Register from "./Register";
+import Login from "./Login";
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
   {
     path: "register",
     element: <Register />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "login",
+    element: <Login />,
     errorElement: <ErrorPage />,
   },
 ];
