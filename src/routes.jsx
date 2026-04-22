@@ -1,6 +1,7 @@
 import App from "./App";
 import Home from "./Home";
 import ErrorPage from "./ErrorPage";
+import Register from "./Register";
 
 const routes = [
   {
@@ -11,6 +12,11 @@ const routes = [
   {
     path: "dashboard",
     element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "register",
+    element: <Register />,
     errorElement: <ErrorPage />,
   },
 ];
