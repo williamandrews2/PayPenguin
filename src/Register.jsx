@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./styles/auth.css";
+const { login } = useAuth();
 
 const Register = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Register = () => {
         return;
       }
 
-      localStorage.setItem("token", data.token);
+      login(data.token);
       navigate("/dashboard");
     } catch (err) {
       setError("Could not connect to the server");
