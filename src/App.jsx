@@ -11,28 +11,41 @@ import { BillContext } from "./contexts/BillContext";
 import BillChart from "./components/BillChart";
 
 function App() {
-  // initialize state from localStorage
-  const [bills, setBills] = useState(() => {
-    const storedBills = localStorage.getItem("bills");
-    if (!storedBills) return [];
+  const [bills, setBills] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    // re-parse the date from a string back to a Date
-    try {
-      const parsed = JSON.parse(storedBills);
-      return parsed.map((bill) => ({
-        ...bill,
-        dueDate: new Date(bill.dueDate),
-      }));
-    } catch (error) {
-      console.error("Failed to parse bills from local storage. Error: ", error);
-      return [];
-    }
-  });
-
-  // track changes in bills array and write to localStorage
+  // fetch bills from API on mount
   useEffect(() => {
-    localStorage.setItem("bills", JSON.stringify(bills));
-  }, [bills]);
+    const fetchBills = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bills`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+
+        if (!res.ok) throw new Error("Failed to fetch bills");
+
+        const data = await res.json();
+
+        // re-parse dueDate back to a Date object, same as before
+        const parsed = data.map((bill) => ({
+          ...bill,
+          dueDate: new Date(bill.dueDate),
+        }));
+
+        setBills(parsed);
+      } catch (error) {
+        console.error("Failed to fetch bills: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBills();
+  }, []); // runs once on mount, was previously localStorage initialization
+
+  if (loading) return <p>Loading...</p>;
 
   return (
     <>

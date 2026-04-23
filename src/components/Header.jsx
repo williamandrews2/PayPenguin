@@ -1,8 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/penguinlogo2.webp";
 import { useAuth } from "../contexts/AuthContext";
 
 function Header() {
-  const { token, login } = useAuth();
+  const { token, login, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   return (
     <>
