@@ -1,6 +1,9 @@
 import logo from "../assets/penguinlogo2.webp";
+import { useAuth } from "../contexts/AuthContext";
 
 function Header() {
+  const { token, login } = useAuth();
+
   return (
     <>
       <header>
@@ -10,9 +13,15 @@ function Header() {
         </div>
         <nav>
           <ul>
-            <li>
-              <a href="login">Login</a>
-            </li>
+            {token ? (
+              <li>
+                <a href="logout">Logout</a>
+              </li>
+            ) : (
+              <li>
+                <a href="login">Login</a>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
