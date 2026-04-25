@@ -67,7 +67,7 @@ export function BillItem({
         <>
           {/* This renders during normal (viewing) mode */}
           <p className="column-name">{bill.name}</p>
-          <p className="column-amount">${bill.amount.toFixed(2)}</p>
+          <p className="column-amount">${bill.amount}</p>
           <p className="column-date">
             {bill.dueDate.toLocaleDateString("en-US", {
               month: "long",
@@ -75,10 +75,10 @@ export function BillItem({
             })}
           </p>
           <button
-            className={`column-status ${bill.paid ? "paid" : "unpaid"}`}
+            className={`column-status ${bill.isPaid ? "paid" : "unpaid"}`}
             onClick={() => togglePaid(bill.id)}
           >
-            {bill.paid ? "Paid" : "Unpaid"}
+            {bill.isPaid ? "Paid" : "Unpaid"}
           </button>
         </>
       )}
