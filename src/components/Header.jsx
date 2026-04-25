@@ -22,7 +22,9 @@ function Header() {
           <ul>
             {token ? (
               <li>
-                <a href="/">Logout</a>
+                <a href="#" onClick={handleLogout}>
+                  Logout
+                </a>
               </li>
             ) : (
               <li>
