@@ -22,7 +22,7 @@ function Header() {
           <ul>
             {token ? (
               <li>
-                <a href="logout">Logout</a>
+                <a href="/">Logout</a>
               </li>
             ) : (
               <li>

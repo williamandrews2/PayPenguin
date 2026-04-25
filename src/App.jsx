@@ -11,8 +11,8 @@ import { BillContext } from "./contexts/BillContext";
 import BillChart from "./components/BillChart";
 
 function App() {
-  const [bills, setBills] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [bills, setBills] = useState([]);
 
   // fetch bills from API on mount
   useEffect(() => {
@@ -32,6 +32,7 @@ function App() {
         const parsed = data.map((bill) => ({
           ...bill,
           dueDate: new Date(bill.dueDate),
+          amount: parseFloat(bill.amount),
         }));
 
         setBills(parsed);
@@ -45,17 +46,21 @@ function App() {
     fetchBills();
   }, []); // runs once on mount, was previously localStorage initialization
 
-  if (loading) return <p>Loading...</p>;
-
   return (
     <>
       <div className="app-container-wrapper">
         <div className="app-container">
           <Header />
           <div className="bill-sections">
-            <BillContext.Provider value={{ bills, setBills }}>
-              <BillList />
-              <BillChart />
+            <BillContext.Provider value={{ bills, setBills, loading }}>
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                <>
+                  <BillList />
+                  <BillChart />
+                </>
+              )}
             </BillContext.Provider>
           </div>
         </div>

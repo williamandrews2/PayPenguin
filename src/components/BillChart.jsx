@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, Legend } from "recharts";
 import "../styles/chart.css";
 
 function BillChart() {
-  const { bills } = useBillContext();
+  const { bills, loading } = useBillContext();
   const COLORS = [
     "#0088FE", // blue
     "#00C49F", // teal
@@ -26,6 +26,11 @@ function BillChart() {
     "#DA70D6", // orchid
     "#00CED1", // dark turquoise
   ];
+
+  console.log("BillChart render - loading:", loading, "bills:", bills.l);
+
+  if (loading) return <p>Loading chart...</p>;
+  if (bills.length === 0) return null;
 
   const chartData = bills.map((bill) => ({ ...bill }));
 
