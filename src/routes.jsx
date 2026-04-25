@@ -3,6 +3,7 @@ import Home from "./Home";
 import ErrorPage from "./ErrorPage";
 import Register from "./Register";
 import Login from "./Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const routes = [
   {
@@ -12,7 +13,11 @@ const routes = [
   },
   {
     path: "dashboard",
-    element: <App />,
+    element: (
+      <ProtectedRoute>
+        <App />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
   },
   {
