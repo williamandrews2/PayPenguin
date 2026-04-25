@@ -41,25 +41,71 @@ export function BillList() {
     }),
   ];
 
-  function addBill(newBill) {
-    setBills((prevBills) => [...prevBills, newBill]);
-    setAddMode(false);
+  // helper function to attach JWT to every request
+  const authHeaders = () => ({
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  });
+
+  async function addBill(newBill) {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bills`, {
+        method: "POST",
+        headers: authHeaders(),
+        body: JSON.stringify({
+          name: newBill.name,
+          amount: newBill.amount,
+          dueDate: newBill.dueDate,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to add bill");
+
+      const savedBill = await res.json();
+      setBills((prevBills) => [
+        ...prevBills,
+        { ...savedBill, dueDate: new Date(savedBill.dueDate) },
+      ]);
+      setAddMode(false);
+    } catch (error) {
+      console.error("Failed to add bill: ", error);
+    }
   }
 
   function updateBillField(id, field, value) {
     // rewrite the editableBills array with the new value passed from the BillItem
     setEditableBills((prev) =>
-      prev.map((bill) => (bill.id === id ? { ...bill, [field]: value } : bill))
+      prev.map((bill) => (bill.id === id ? { ...bill, [field]: value } : bill)),
     );
   }
 
-  function saveAll() {
-    const updated = editableBills.map((bill) => ({
-      ...bill,
-      amount: parseFloat(bill.amount),
-    }));
-    setBills(updated);
-    enableEditMode();
+  async function saveAll() {
+    try {
+      const updated = editableBills.map((bill) => ({
+        ...bill,
+        amount: parseFloat(bill.amount),
+      }));
+
+      // send a PUT request for every edited bill
+      await Promise.all(
+        updated.map((bill) =>
+          fetch(`${import.meta.env.VITE_API_URL}/api/bills/${bill.id}`, {
+            method: "PUT",
+            headers: authHeaders(),
+            body: JSON.stringify({
+              name: bill.name,
+              amount: bill.amount,
+              dueDate: bill.dueDate,
+            }),
+          }),
+        ),
+      );
+
+      setBills(updated);
+      enableEditMode();
+    } catch (error) {
+      console.error("Failed to save bills: ", error);
+    }
   }
 
   function enableEditMode() {
@@ -70,33 +116,85 @@ export function BillList() {
     setAddMode(!addMode);
   }
 
-  function handleDelete(id) {
+  async function handleDelete(id) {
     if (confirm("Are you sure you want to delete this bill?")) {
-      setBills((prevBills) => prevBills.filter((bill) => bill.id !== id));
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/bills/${id}`,
+          {
+            method: "DELETE",
+            headers: authHeaders(),
+          },
+        );
+
+        if (!res.ok) throw new Error("Failed to delete bill");
+
+        setBills((prevBills) => prevBills.filter((bill) => bill.id !== id));
+      } catch (error) {
+        console.error("Failed to delete bill: ", error);
+      }
     }
   }
 
-  function togglePaid(id) {
-    setBills((prevBills) =>
-      prevBills.map((bill) =>
-        bill.id === id ? { ...bill, paid: !bill.paid } : bill
-      )
-    );
+  async function togglePaid(id) {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/bills/${id}/paid`,
+        {
+          method: "PATCH",
+          headers: authHeaders(),
+        },
+      );
+
+      if (!res.ok) throw new Error("Failed to toggle paid status");
+
+      const updatedBill = await res.json();
+
+      setBills((prevBills) =>
+        prevBills.map((bill) =>
+          bill.id === id
+            ? { ...updatedBill, dueDate: new Date(updatedBill.dueDate) }
+            : bill,
+        ),
+      );
+    } catch (error) {
+      console.error("Failed to toggle paid status: ", error);
+    }
   }
 
-  function resetStatus() {
+  async function resetStatus() {
     if (
       confirm(
-        "Are you sure you want to reset the paid status of all bills? This will also advance all due dates to the next month."
+        "Are you sure you want to reset the paid status of all bills? This will also advance all due dates to the next month.",
       )
     ) {
-      setBills((prevBills) =>
-        prevBills.map((bill) => {
+      try {
+        const updated = bills.map((bill) => {
           const nextDate = new Date(bill.dueDate);
           nextDate.setMonth(nextDate.getMonth() + 1);
-          return { ...bill, paid: false, dueDate: nextDate };
-        })
-      );
+          return { ...bill, isPaid: false, dueDate: nextDate };
+        });
+
+        // send a PUT request for every bill with the new date and reset status
+        await Promise.all(
+          updated.map((bill) =>
+            fetch(`${import.meta.env.VITE_API_URL}/api/bills/${bill.id}`, {
+              method: "PUT",
+              headers: authHeaders(),
+              body: JSON.stringify({
+                name: bill.name,
+                amount: bill.amount,
+                dueDate: bill.dueDate,
+                isPaid: false,
+              }),
+            }),
+          ),
+        );
+
+        setBills(updated);
+      } catch (error) {
+        console.error("Failed to reset bills: ", error);
+      }
     }
   }
 
