@@ -12,6 +12,7 @@ const Register = () => {
     lastName: "",
     username: "",
     password: "",
+    confirmPassword: "",
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,13 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+
+    // check before hitting the API
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -110,6 +118,19 @@ const Register = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="At least 6 characters"
+                required
+              />
+            </div>
+
+            <div className="auth-form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Confirm your password"
                 required
               />
             </div>
