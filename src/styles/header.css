@@ -14,3 +14,44 @@ header {
   width: auto;
   padding-right: 10px;
 }
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin: 0;
+}
+
+.login-btn,
+.logout-btn {
+  background-color: #a8d5ff;
+  color: #084471;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  min-width: 70px;
+}
+
+.login-btn:hover,
+.logout-btn:hover {
+  background-color: #7bb3e8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(168, 213, 255, 0.4);
+}
+
+.login-btn:active,
+.logout-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(168, 213, 255, 0.4);
+}

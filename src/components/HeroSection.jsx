@@ -1,8 +1,11 @@
 import penguin from "../assets/paypenguinheroimage.webp";
 import { Link } from "react-router-dom";
 import "../styles/heroSection.css";
+import { useAuth } from "../contexts/AuthContext";
 
 export function HeroSection() {
+  const { token } = useAuth();
+
   return (
     <section className="hero-section">
       <div className="hero-headings">
@@ -13,9 +16,15 @@ export function HeroSection() {
           stress.
         </p>
 
-        <Link to="dashboard" className="get-started-button">
-          Get Started
-        </Link>
+        {token ? (
+          <Link to="dashboard" className="get-started-button">
+            Dashboard
+          </Link>
+        ) : (
+          <Link to="register" className="get-started-button">
+            Start now!
+          </Link>
+        )}
       </div>
       <img src={penguin} alt="penguin image" />
     </section>
