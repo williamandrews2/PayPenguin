@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./styles/auth.css";
 import { useAuth } from "./contexts/AuthContext";
+import Header from "./components/Header";
 
 const Login = () => {
   const { login } = useAuth();
@@ -51,8 +52,9 @@ const Login = () => {
   return (
     <div className="app-container-wrapper">
       <div className="app-container">
+        <Header />
         <div className="auth-container">
-          <h1 className="auth-title">PayPenguin 🐧</h1>
+          {/* <h1 className="auth-title">PayPenguin 🐧</h1> */}
           <h2 className="auth-subtitle">Welcome Back</h2>
 
           {error && <p className="auth-error">{error}</p>}

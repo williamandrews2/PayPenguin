@@ -16,6 +16,12 @@
   width: 85%;
 }
 
+h1 a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 2rem;
+}
+
 /* mobile optimization */
 
 @media (max-width: 600px) {

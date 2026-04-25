@@ -64,7 +64,11 @@ export function BillList() {
       const savedBill = await res.json();
       setBills((prevBills) => [
         ...prevBills,
-        { ...savedBill, dueDate: new Date(savedBill.dueDate) },
+        {
+          ...savedBill,
+          dueDate: new Date(savedBill.dueDate),
+          amount: parseFloat(savedBill.amount),
+        },
       ]);
       setAddMode(false);
     } catch (error) {

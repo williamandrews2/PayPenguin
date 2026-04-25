@@ -16,7 +16,9 @@ function Header() {
       <header>
         <div className="branding">
           <img src={logo} alt="logo" />
-          <h1>PayPenguin</h1>
+          <h1>
+            <a href="/">PayPenguin</a>
+          </h1>
         </div>
         <nav>
           <ul>
