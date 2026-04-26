@@ -27,8 +27,6 @@ function BillChart() {
     "#00CED1", // dark turquoise
   ];
 
-  console.log("BillChart render - loading:", loading, "bills:", bills.l);
-
   if (loading) return <p>Loading chart...</p>;
   if (bills.length === 0) return null;
 
