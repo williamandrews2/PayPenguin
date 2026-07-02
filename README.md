@@ -1,6 +1,6 @@
 # PayPenguin 🐧 – Bill Tracking App
 
-PayPenguin is a simple, responsive bill tracking app built with ReactJS and Vite. It helps users keep track of monthly recurring bills with options to mark bills as paid, sort by due date, edit or delete entries, and persist data between sessions using localStorage.
+PayPenguin is a full-stack bill tracking application built with React, Node.js, Express, and PostgreSQL. The app features JWT-based authentication with Passport.js and bcrypt password hashing, allowing users to securely register, log in, and manage their own bills in isolation. The backend follows an MVC pattern with separate routers, controllers, and custom middleware for route protection and ownership validation, connected to a Supabase-hosted PostgreSQL database via Prisma ORM. The frontend uses React Context for global auth and bill state management, and was migrated from localStorage to a live REST API with full CRUD functionality. Both the frontend and backend are deployed separately on Vercel with production CORS configuration and environment-based secrets management.
 
 ## 🧩 Features
 
