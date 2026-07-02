@@ -13,8 +13,6 @@ PayPenguin is a simple, responsive bill tracking app built with ReactJS and Vite
 - 🛠️ **Batch Actions**: Reset all bills to unpaid with one-month advancement or delete them in bulk using the footer controls.
 
 ## 🔮 Planned Future Improvements
-- 🔐 Turn into a full-stack app with user authentication and cloud-based storage
-- 📈 Chart visualization of spending trends (planning to use Recharts)
 - 📨 Notifications/reminders for upcoming due dates
 - 📱 Full UI overhaul to look more "modern"
 
