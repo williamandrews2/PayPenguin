@@ -67,7 +67,9 @@ export function BillItem({
         <>
           {/* This renders during normal (viewing) mode */}
           <p className="column-name">{bill.name}</p>
-          <p className="column-amount">${bill.amount}</p>
+          <p className="column-amount">
+            ${Number(bill.amount || 0).toFixed(2)}
+          </p>
           <p className="column-date">
             {bill.dueDate.toLocaleDateString("en-US", {
               month: "long",
